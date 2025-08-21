@@ -1,5 +1,38 @@
 # DOCKER_SETUP.md
 
+## Cómo levantar el proyecto con Docker
+
+Sigue estos pasos para construir y ejecutar el contenedor Docker de este proyecto en Linux:
+
+### 1. Requisitos previos
+- Tener Docker instalado y en ejecución.
+
+### 2. Construir la imagen Docker
+Abre una terminal en la carpeta del proyecto y ejecuta:
+
+```bash
+docker build -t contador-visitas .
+```
+Esto creará una imagen llamada `contador-visitas`.
+
+### 3. Levantar el contenedor
+Ejecuta el siguiente comando:
+
+```bash
+docker run -d -p 5000:5000 --name visitas contador-visitas
+```
+- `-d`: Ejecuta el contenedor en segundo plano.
+- `-p 5000:5000`: Mapea el puerto 5000 del contenedor al 5000 de tu máquina.
+- `--name visitas`: Asigna el nombre `visitas` al contenedor.
+
+### 4. Acceder a la aplicación
+Abre tu navegador y visita:
+```
+http://localhost:5000
+```
+
+---
+
 ## 1. ¿Qué pasa si corremos la imagen de Docker sin asignar ninguna flag a `docker run`? ¿Podemos usar la misma terminal para correr otros comandos?
 
 Si ejecutas el contenedor con:
